@@ -8,11 +8,11 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  // ✅ Security middleware — allow 3rd-party images
+
   app.use(
     helmet({
       crossOriginResourcePolicy: { policy: 'cross-origin' },
-      // Optionally add other Helmet policies if you need
+      
     }),
   );
 
@@ -21,11 +21,11 @@ async function bootstrap() {
     methods: ['GET', 'POST'],
   });
 
-  // ✅ View engine config
+  
   app.setBaseViewsDir(join(process.cwd(), 'views'));
-  app.setViewEngine('ejs'); // ❌ remove duplicate line
+  app.setViewEngine('ejs'); 
 
-  // ✅ Swagger setup
+
   const config = new DocumentBuilder()
     .setTitle('QR-Movies API')
     .setDescription('Generate rotating QR codes and fetch 10 random movies')
