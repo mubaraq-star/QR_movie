@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎬 10 Random Movies</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 2rem;
+      color: #111;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1f2937;
+    }
+
+    .regenerate {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .regenerate a {
+      text-decoration: none;
+      color: #3b82f6;
+      font-weight: 600;
+    }
+
+    .movies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .movie-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+    }
+
+    .movie-card .content {
+      padding: 1rem;
+      flex: 1;
+    }
+
+    .movie-card h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem;
+      color: #111827;
+    }
+
+    .movie-card p {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .fallback-text {
+      text-align: center;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🎥 10 Random Movies</h1>
+
+  <div class="regenerate">
+    <a href="/qr">⟳ Generate a fresh QR code</a>
+  </div>
+
+  <% if (movies && movies.length) { %>
+    <ul class="movies-grid">
+      <% movies.forEach(m=> {
+        let raw = (m.posterSrc && m.posterSrc !== 'N/A') ? m.posterSrc : (m.Images?.[0] ?? '');
+        if (raw.startsWith('http://')) raw = raw.replace('http://', 'https://');
+        const src = raw || 'https://via.placeholder.com/300x450?text=No+Image';
+        %>
+        <li class="movie-card">
+          <img src="<%= src %>" alt="<%= m.Title %>" loading="lazy" referrerpolicy="no-referrer"
+            onerror="this.onerror=null;this.src='https://via.placeholder.com/300x450?text=No+Image';" />
+          <div class="content">
+            <h2>
+              <%= m.Title %> (<%= m.Year %>)
+            </h2>
+            <p>
+              <%= m.Plot %>
+            </p>
+          </div>
+        </li>
+        <% }) %>
+    </ul>
+    <% } else { %>
+      <p class="fallback-text">No movies available. <a href="/qr">Try again</a></p>
+      <% } %>
+</body>
+
+</html>
