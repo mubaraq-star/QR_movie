@@ -5,6 +5,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { MoviesModule } from './movies/movies.module';
 import { TokenModule } from './token/token.module';
 import { QrModule } from './qr/qr.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -15,5 +16,6 @@ import { QrModule } from './qr/qr.module';
     TokenModule,
     QrModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
