@@ -4,8 +4,8 @@
   "scripts": {
     "start": "nest start",
     "start:dev": "nest start --watch",
-     "start:prod": "npm run build && cross-env NODE_ENV=production node dist/main.js",
-    "build": "npx nest build",
+    "start:prod": "node dist/main.js",
+    "build": "nest build",
     "prisma:generate":  "npx prisma generate",
        "prisma:migrate": "npx prisma migrate deploy"
   },
