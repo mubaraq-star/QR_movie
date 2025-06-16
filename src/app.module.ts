@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
-import { PrismaModule } from '../prisma/prisma.module';
+import { PrismaModule } from './prisma/prisma.module';
 import { MoviesModule } from './movies/movies.module';
 import { TokenModule } from './token/token.module';
 import { QrModule } from './qr/qr.module';
