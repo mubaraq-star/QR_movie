@@ -20,7 +20,7 @@ async function bootstrap() {
     origin: ['http://localhost:3000'],
     methods: ['GET', 'POST'],
   });
-
+    
   
   app.setBaseViewsDir(join(process.cwd(), 'views'));
   app.setViewEngine('ejs'); 

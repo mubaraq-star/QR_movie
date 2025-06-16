@@ -6,10 +6,9 @@
     "start:dev": "nest start --watch",
     "start:prod": "node dist/main.js",
     "build": "nest build",
-    "prisma:generate":  "npx prisma generate",
-       "prisma:migrate": "npx prisma migrate deploy",
-       "schema": "./src/prisma/schema.prisma"
-
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate deploy"
+   
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
