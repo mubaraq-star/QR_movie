@@ -2,13 +2,13 @@
   "name": "qr-movies-app",
   "version": "1.0.0",
   "scripts": {
-  "build": "npx nest build",
-  "start": "npx nest start",
-  "start:dev": "npx nest start --watch",
-  "start:prod": "cross-env NODE_ENV=production node dist/main.js",
-  "prisma:generate": "npx prisma generate",
-  "prisma:migrate": "npx prisma migrate deploy"
-},
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:prod": "cross-env NODE_ENV=production nest start",
+    "build": "nest build",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
+  },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.0.0",
